@@ -1,25 +1,21 @@
 package com.barnese.jax;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 
 @Path("/hello")
 public class Hello {
     // This method is called if HTML and XML is not requested
-    @POST
+    @GET
+    @Path("{info}")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response sayPlainTextHello(String value) {
-
-        String msg =  "903 + " + value;
-        //return msg;
-        return Response.status(200).entity(msg).build();
+    public Response sayPlainTextHello(@PathParam("info") String val) {
+      String response = Model.enterValue(val.charAt(0));
+        return Response.status(200).entity(response).build();
     }
     // This method is called if XML is requested
-    @GET
+    /*@GET
     @Produces(MediaType.TEXT_XML)
     public String sayXMLHello() {
 
@@ -33,5 +29,5 @@ public class Hello {
         System.out.println("message " + mooms);
         return "<html> " + "<title>" + "Hello Jersey" + "</title>"
                 + "<body><h1>" + "Hello Jersey HTML" + "</h1></body>" + "</html> ";
-    }
+    }*/
 }   
