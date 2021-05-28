@@ -20,14 +20,15 @@ public class Model {
 
     public static String getValue() {
         int displayValInt = (int) displayValue;
-        if (pos != 0)
+        return Integer.toString(displayValInt);
+        /*if (pos != 0)
             return String.valueOf(charArr);
         else if (displayValInt - displayValue == 0) {
             if (currentChar == '.')
                 return Integer.toString(displayValInt) + '.';
             return Integer.toString(displayValInt);
         } else
-            return String.format("%10f", displayValue);
+            return String.format("%10f", displayValue);*/
     }
 
     //input a character, and then parse the character depending if

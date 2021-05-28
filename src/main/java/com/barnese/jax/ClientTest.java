@@ -2,11 +2,17 @@ package com.barnese.jax;
 
 import java.net.URI;
 import java.util.Scanner;
-import javax.ws.rs.client.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
+
+
+
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriBuilder;
 import org.glassfish.jersey.client.ClientConfig;
+
 public class ClientTest {
     public static void main(String[] args) {
         ClientConfig config = new ClientConfig();
@@ -42,6 +48,6 @@ public class ClientTest {
     }
     private static URI getBaseURI() {
         //here server is running on 4444 port number and project name is restfuljersey
-        return UriBuilder.fromUri("http://localhost:8080/test").build();
+        return UriBuilder.fromUri("http://localhost:8080/CalculatorBackEndII/").build();
     }
 }   
